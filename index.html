@@ -59,6 +59,40 @@
 
       .name { font-weight: 600; }
       .what { margin-top: 0.15rem; color: var(--text-dim); font-size: 0.875rem; }
+
+      footer {
+        margin-top: 2.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .foot-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: .75rem;
+        font-size: .8125rem;
+        color: var(--text-dim);
+      }
+
+      .foot-row nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+      .foot-row a {
+        color: var(--text-dim);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: color .15s, border-color .15s;
+      }
+
+      .foot-row a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+      .notice {
+        margin: 1rem 0 0;
+        color: #64748b;
+        font-size: .75rem;
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -72,6 +106,29 @@
           Works out how many hearts to ask for a trade paid in real money.
         </div>
       </a>
+
+      <footer>
+        <div class="foot-row">
+          <span>&copy; 2026 NyuDev</span>
+          <nav aria-label="About this site">
+            <a href="https://github.com/NyuDev/NyuDev.github.io" target="_blank" rel="noopener noreferrer">Source code</a>
+            <a href="https://github.com/NyuDev/NyuDev.github.io/blob/main/LICENSE" target="_blank" rel="license noopener noreferrer">Licence</a>
+            <a href="https://github.com/NyuDev/NyuDev.github.io/issues/new" target="_blank" rel="noopener noreferrer">Suggest a change</a>
+          </nav>
+        </div>
+
+        <p class="notice">
+          Unofficial fan project, not affiliated with or endorsed by thatgamecompany, Inc.
+          &ldquo;Sky: Children of the Light&rdquo; and thatgamecompany are their trademarks, named
+          here only to identify the game. No official game assets are used.
+        </p>
+        <p class="notice">
+          Projet de fan non officiel, sans affiliation avec thatgamecompany, Inc. ni approbation de
+          sa part. &laquo;&nbsp;Sky: Children of the Light&nbsp;&raquo; et thatgamecompany sont
+          leurs marques, cit&eacute;es ici uniquement pour identifier le jeu. Aucune ressource
+          officielle du jeu n&rsquo;est utilis&eacute;e.
+        </p>
+      </footer>
     </main>
 
     <!--
