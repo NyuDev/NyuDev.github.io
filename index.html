@@ -6,6 +6,7 @@
     <meta name="color-scheme" content="dark" />
     <title>thatskyapp</title>
     <meta name="description" content="Tools for Sky: Children of the Light." />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#38bdf8" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thatskyapp.com/" />
@@ -35,6 +36,9 @@
       }
 
       main { width: 100%; max-width: 34rem; }
+
+      .identity { display: flex; align-items: center; gap: .6rem; }
+      .identity svg { width: 1.6rem; height: 1.6rem; flex: none; }
 
       h1 {
         margin: 0;
@@ -97,7 +101,19 @@
   </head>
   <body>
     <main>
-      <h1>thatskyapp</h1>
+      <div class="identity">
+        <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="star" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7dd3fc"/>
+              <stop offset="55%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#fb7185"/>
+            </linearGradient>
+          </defs>
+          <polygon points="100,10 121.2,78.8 190,100 121.2,121.2 100,190 78.8,121.2 10,100 78.8,78.8" fill="url(#star)"/>
+        </svg>
+        <h1>thatskyapp</h1>
+      </div>
       <p class="lede">Tools for Sky: Children of the Light.</p>
 
       <a class="card" href="/heart-trade-simulator/">
