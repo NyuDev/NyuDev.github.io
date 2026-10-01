@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>thatskyapp</title>
+    <meta name="description" content="Tools for Sky: Children of the Light." />
+    <meta name="theme-color" content="#38bdf8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thatskyapp.com/" />
+    <meta property="og:title" content="thatskyapp" />
+    <meta property="og:description" content="Tools for Sky: Children of the Light." />
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --surface: #121820;
+        --line: #1f2b38;
+        --text: #e6edf3;
+        --text-dim: #93a4b5;
+        --accent: #38bdf8;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem 1rem;
+        background: var(--bg);
+        color: var(--text);
+        font: 400 1rem/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      main { width: 100%; max-width: 34rem; }
+
+      h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        letter-spacing: -0.01em;
+      }
+
+      .lede { margin: 0.5rem 0 2rem; color: var(--text-dim); }
+
+      a.card {
+        display: block;
+        padding: 1.1rem 1.25rem;
+        border: 1px solid var(--line);
+        border-radius: 0.75rem;
+        background: var(--surface);
+        color: inherit;
+        text-decoration: none;
+        transition: border-color 0.15s, transform 0.15s;
+      }
+
+      a.card:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+      .name { font-weight: 600; }
+      .what { margin-top: 0.15rem; color: var(--text-dim); font-size: 0.875rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>thatskyapp</h1>
+      <p class="lede">Tools for Sky: Children of the Light.</p>
+
+      <a class="card" href="/heart-trade-simulator/">
+        <div class="name">Price &amp; Risk Simulator</div>
+        <div class="what">
+          Works out how many hearts to ask for a trade paid in real money.
+        </div>
+      </a>
+    </main>
+  </body>
+</html>
