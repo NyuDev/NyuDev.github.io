@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The home page, and only the home page. Everything under
+  /heart-trade-simulator/ is listed by that repository's own sitemap, which
+  robots.txt names alongside this one.
+
+  No lastmod, no changefreq, no priority: Google ignores the last two outright,
+  and a lastmod that is not genuinely the date the content changed is worse
+  than none at all, because it teaches the crawler to stop trusting the field.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://thatskyapp.com/</loc>
+  </url>
+</urlset>

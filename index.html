@@ -6,12 +6,50 @@
     <meta name="color-scheme" content="dark" />
     <title>thatskyapp</title>
     <meta name="description" content="Tools for Sky: Children of the Light." />
+    <link rel="canonical" href="https://thatskyapp.com/" />
     <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#38bdf8" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thatskyapp.com/" />
     <meta property="og:title" content="thatskyapp" />
     <meta property="og:description" content="Tools for Sky: Children of the Light." />
+    <meta name="twitter:card" content="summary" />
+
+    <!--
+      What this site is, said once in a form a machine can read. No rating, no
+      price, no review: there are none, and inventing them to chase a rich
+      result is exactly the kind of markup that gets a site demoted.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://thatskyapp.com/#site",
+            "url": "https://thatskyapp.com/",
+            "name": "thatskyapp",
+            "description": "Tools for Sky: Children of the Light.",
+            "inLanguage": ["en", "fr"],
+            "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://thatskyapp.com/heart-trade-simulator/#app",
+            "url": "https://thatskyapp.com/heart-trade-simulator/",
+            "name": "Price & Risk Simulator",
+            "alternateName": "Simulateur de Prix & de Risques",
+            "description": "Works out how many hearts to ask for a Sky: Children of the Light trade paid in real money, and how long it would take to pay back.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires JavaScript.",
+            "isAccessibleForFree": true,
+            "inLanguage": ["en", "fr"],
+            "isPartOf": { "@id": "https://thatskyapp.com/#site" }
+          }
+        ]
+      }
+    </script>
     <style>
       :root {
         --bg: #0b0f14;
@@ -62,6 +100,21 @@
       a.card:hover { border-color: var(--accent); transform: translateY(-1px); }
 
       .name { font-weight: 600; }
+
+      .also {
+        margin: .75rem 0 0;
+        font-size: .8125rem;
+        color: var(--text-dim);
+      }
+
+      .also a {
+        color: var(--text-dim);
+        text-decoration: none;
+        border-bottom: 1px solid #243242;
+      }
+
+      .also a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
       .what { margin-top: 0.15rem; color: var(--text-dim); font-size: 0.875rem; }
 
       footer {
@@ -127,6 +180,13 @@
           Works out how many hearts to ask for a trade paid in real money.
         </div>
       </a>
+
+      <p class="also">
+        How it works:
+        <a href="/heart-trade-simulator/faq/">questions &amp; answers</a>
+        &middot;
+        <a href="/heart-trade-simulator/fr/faq/" hreflang="fr">questions fr&eacute;quentes</a>
+      </p>
 
       <footer>
         <div class="foot-row">

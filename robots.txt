@@ -1,0 +1,10 @@
+# Everything here is meant to be found. Nothing is gated, nothing is private,
+# and there is no search or session URL worth keeping a crawler away from.
+User-agent: *
+Allow: /
+
+# One per repository: this one covers the home page, the other is written by
+# the simulator's own build, so a page added there is listed without anybody
+# having to remember to come back and edit this file.
+Sitemap: https://thatskyapp.com/sitemap.xml
+Sitemap: https://thatskyapp.com/heart-trade-simulator/sitemap.xml
