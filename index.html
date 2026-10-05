@@ -208,7 +208,7 @@
 
       <footer>
         <div class="foot-row">
-          <span>&copy; 2026 NyuDev</span>
+          <span>&copy; <span class="years">2026</span> NyuDev</span>
           <nav aria-label="About this site">
             <a href="https://github.com/NyuDev/NyuDev.github.io" target="_blank" rel="noopener noreferrer">Source code</a>
             <a href="https://github.com/NyuDev/NyuDev.github.io/blob/main/LICENSE" target="_blank" rel="license noopener noreferrer">Licence</a>
@@ -217,7 +217,7 @@
         </div>
 
         <p class="licence">
-          <a href="https://thatskyapp.com/">thatskyapp</a> &copy; 2026 by
+          <a href="https://thatskyapp.com/">thatskyapp</a> &copy; <span class="years">2026</span> by
           <a href="https://github.com/NyuDev">NyuDev</a> is licensed under
           <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-ND 4.0</a><img
             src="/cc/cc.svg" alt="" width="16" height="16"><img
@@ -246,6 +246,27 @@
       DNS-only on Cloudflare, so traffic never passes through it and this
       beacon is the only way it sees a visit at all.
     -->
+    <!--
+      The simulator derives this from src/config/copyright.js; this page has no
+      build to import it from, so the rule is repeated here in the smallest
+      form that cannot go stale.
+
+      The published year is in the HTML, which is the one a licence has to
+      carry: the script only extends it to a range once the site has outlived
+      it. A reader without JavaScript sees 2026, which stays true.
+    -->
+    <script>
+      (function () {
+        var published = 2026;
+        var now = new Date().getUTCFullYear();
+        if (now <= published) return;
+        var range = published + '–' + now;
+        document.querySelectorAll('.years').forEach(function (el) {
+          el.textContent = range;
+        });
+      })();
+    </script>
+
     <script
       type="module"
       src="https://static.cloudflareinsights.com/beacon.min.js"
