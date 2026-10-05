@@ -92,7 +92,12 @@
         font: 400 1rem/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
       }
 
-      main { width: 100%; max-width: 34rem; }
+      /* The width the simulator and the FAQ pages use, so the footer has the
+         room to sit in two columns the way theirs do. The card above keeps its
+         own 34rem and stays centred: only the footer wanted the extra width. */
+      main { width: 100%; max-width: 64rem; }
+
+      .hero { max-width: 34rem; margin-inline: auto; }
 
       .identity { display: flex; align-items: center; gap: .6rem; }
       .identity svg { width: 1.6rem; height: 1.6rem; flex: none; }
@@ -120,20 +125,6 @@
 
       .name { font-weight: 600; }
 
-      .also {
-        margin: .75rem 0 0;
-        font-size: .8125rem;
-        color: var(--text-dim);
-      }
-
-      .also a {
-        color: var(--text-dim);
-        text-decoration: none;
-        border-bottom: 1px solid #243242;
-      }
-
-      .also a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
       .what { margin-top: 0.15rem; color: var(--text-dim); font-size: 0.875rem; }
 
       /* The application's footer, rule for rule: same two columns, same
@@ -157,11 +148,11 @@
 
       .meta { display: flex; flex-direction: column; gap: .85rem; }
 
-      /* The simulator splits its footer into two columns past 62rem. This page
-         is a 34rem card, so there is never room for the second one — and the
-         breakpoint reads the window, not the column, so copying it here put the
-         identity hard right above links still sitting left. One column, and the
-         block comes back the day this page is widened. */
+      @media (min-width: 62rem) {
+        .prose { flex: 1 1 26rem; }
+        .meta { align-items: flex-end; }
+        .links { justify-content: flex-end; }
+      }
 
       /* --text-dim at .8125rem, like the column opposite. The old #64748b at
          .75rem came to 4.04:1 on this background, under what body copy needs. */
@@ -206,6 +197,7 @@
   </head>
   <body>
     <main>
+      <div class="hero">
       <div class="identity">
         <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
           <defs>
@@ -230,13 +222,7 @@
           Works out how many hearts to ask for a trade paid in real money.
         </div>
       </a>
-
-      <p class="also">
-        How it works:
-        <a href="/heart-trade-simulator/faq/">questions &amp; answers</a>
-        &middot;
-        <a href="/heart-trade-simulator/fr/faq/" hreflang="fr">questions fr&eacute;quentes</a>
-      </p>
+      </div>
 
       <!--
         The same two columns as the simulator and the FAQ pages: the prose on
@@ -260,17 +246,14 @@
                 class="badge" src="/cc/nd.svg" alt="" width="16" height="16"></span>
             </p>
 
-            <p class="notice">
-              Unofficial fan project, unconnected to thatgamecompany. &ldquo;Sky: Children of the
-              Light&rdquo; and &ldquo;thatgamecompany&rdquo; are named to identify the game, nothing
-              more. No material from the game is reused here. None of this is legal advice.
-            </p>
-            <p class="notice" lang="fr">
-              Projet de fan non officiel, sans lien avec thatgamecompany. &laquo;&nbsp;Sky: Children
-              of the Light&nbsp;&raquo; et &laquo;&nbsp;thatgamecompany&nbsp;&raquo; sont
-              cit&eacute;s pour d&eacute;signer le jeu, rien de plus. Aucun &eacute;l&eacute;ment du
-              jeu n&rsquo;est repris ici. Ceci n&rsquo;est pas un conseil juridique.
-            </p>
+            <!--
+              One line each, like the application's footer. The notice in full
+              is a question of its own in the FAQ, in both languages, which is
+              where it was already being read; four paragraphs of it here made
+              this footer twice the height of the one it is meant to match.
+            -->
+            <p class="notice">Unofficial fan project, unconnected to thatgamecompany.</p>
+            <p class="notice" lang="fr">Projet de fan non officiel, sans lien avec thatgamecompany.</p>
           </div>
 
           <div class="meta">
