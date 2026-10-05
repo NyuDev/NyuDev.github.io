@@ -66,12 +66,16 @@
       }
     </script>
     <style>
+      /* The simulator's tokens, value for value (src/styles/tokens.css). They
+         used to differ by a hair in four places — enough that the two pages
+         read as neighbours rather than as one site when opened side by side. */
       :root {
         --bg: #0b0f14;
-        --surface: #121820;
-        --line: #1f2b38;
-        --text: #e6edf3;
-        --text-dim: #93a4b5;
+        --surface: #111a27;
+        --line: #1e293b;
+        --text: #e2e8f0;
+        --text-dim: #94a3b8;
+        --text-faint: #64748b;
         --accent: #38bdf8;
       }
 
@@ -132,45 +136,73 @@
 
       .what { margin-top: 0.15rem; color: var(--text-dim); font-size: 0.875rem; }
 
-      footer {
-        margin-top: 2.5rem;
-        padding-top: 1.25rem;
+      /* The application's footer, rule for rule: same two columns, same
+         breakpoint, same link row. One column until 62rem, two after it. */
+      .foot {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
         border-top: 1px solid var(--line);
       }
 
-      .foot-row {
+      .foot .row {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: stretch;
         justify-content: space-between;
-        gap: .75rem;
-        font-size: .8125rem;
-        color: var(--text-dim);
+        gap: 1.25rem 2.5rem;
       }
 
-      .foot-row nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+      .prose { flex: 1 1 100%; max-width: 48rem; min-width: 0; }
+      .prose > :first-child { margin-top: 0; }
 
-      .foot-row a {
+      .meta { display: flex; flex-direction: column; gap: .85rem; }
+
+      /* The simulator splits its footer into two columns past 62rem. This page
+         is a 34rem card, so there is never room for the second one — and the
+         breakpoint reads the window, not the column, so copying it here put the
+         identity hard right above links still sitting left. One column, and the
+         block comes back the day this page is widened. */
+
+      /* --text-dim at .8125rem, like the column opposite. The old #64748b at
+         .75rem came to 4.04:1 on this background, under what body copy needs. */
+      .foot p { margin: 0; color: var(--text-dim); font-size: .8125rem; line-height: 1.6; }
+      .foot .notice { margin-top: 1rem; }
+
+      .licence a { color: var(--text-dim); text-decoration: underline; text-underline-offset: 2px; }
+      .licence a:hover { color: var(--accent); }
+
+      /* Inline flow, and the badges ride with the licence name: flex orphaned
+         them onto a line of their own, and so did a plain wrap. */
+      .deed { white-space: nowrap; }
+
+      /* Black line art, drawn for light pages. */
+      .badge {
+        width: 1em; height: 1em; margin-left: .2em; vertical-align: -.15em;
+        filter: invert(1) opacity(.55);
+      }
+
+      /* line-height normal, not the 1.6 the prose uses: that made this row a
+         few pixels taller than the one it is meant to line up with. */
+      .foot .identity {
+        display: flex; align-items: center; gap: .5rem;
+        font-size: .8125rem; line-height: normal;
+      }
+
+      .foot .identity > svg { width: 1.05rem; height: 1.05rem; flex: none; }
+
+      .links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .8125rem; }
+
+      .links a {
         color: var(--text-dim);
         text-decoration: none;
         border-bottom: 1px solid transparent;
         transition: color .15s, border-color .15s;
       }
 
-      .foot-row a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+      .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-      .licence { margin: .9rem 0 0; font-size: .75rem; color: #64748b; }
-      .licence a { color: #64748b; text-decoration: underline; text-underline-offset: 2px; }
-      .licence a:hover { color: var(--accent); }
-      .licence img { width: 1em; height: 1em; margin-left: .2em; vertical-align: -.1em; filter: invert(1) opacity(.55); }
-
-      .notice {
-        margin: 1rem 0 0;
-        color: #64748b;
-        font-size: .75rem;
-        line-height: 1.6;
-      }
-    </style>
+      .links a.contribute { color: var(--accent); }
+</style>
   </head>
   <body>
     <main>
@@ -206,37 +238,65 @@
         <a href="/heart-trade-simulator/fr/faq/" hreflang="fr">questions fr&eacute;quentes</a>
       </p>
 
-      <footer>
-        <div class="foot-row">
-          <span>&copy; <span class="years">2026</span> NyuDev</span>
-          <nav aria-label="About this site">
-            <a href="https://github.com/NyuDev/NyuDev.github.io" target="_blank" rel="noopener noreferrer">Source code</a>
-            <a href="https://github.com/NyuDev/NyuDev.github.io/blob/main/LICENSE" target="_blank" rel="license noopener noreferrer">Licence</a>
-            <a href="https://github.com/NyuDev/NyuDev.github.io/issues/new" target="_blank" rel="noopener noreferrer">Suggest a change</a>
-          </nav>
+      <!--
+        The same two columns as the simulator and the FAQ pages: the prose on
+        the left, capped for reading, and the identity with the links running
+        down the right. One column until 62rem.
+      -->
+      <footer class="foot">
+        <div class="row">
+          <div class="prose">
+            <p class="licence">
+              <a href="https://thatskyapp.com/">thatskyapp</a> &copy;
+              <span class="years">2026</span> by
+              <a href="https://github.com/NyuDev">NyuDev</a> is licensed under
+              <span class="deed"><a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+                rel="license noopener noreferrer"
+                target="_blank">CC BY-NC-ND 4.0</a><img
+                class="badge" src="/cc/cc.svg" alt="" width="16" height="16"><img
+                class="badge" src="/cc/by.svg" alt="" width="16" height="16"><img
+                class="badge" src="/cc/nc.svg" alt="" width="16" height="16"><img
+                class="badge" src="/cc/nd.svg" alt="" width="16" height="16"></span>
+            </p>
+
+            <p class="notice">
+              Unofficial fan project, unconnected to thatgamecompany. &ldquo;Sky: Children of the
+              Light&rdquo; and &ldquo;thatgamecompany&rdquo; are named to identify the game, nothing
+              more. No material from the game is reused here. None of this is legal advice.
+            </p>
+            <p class="notice" lang="fr">
+              Projet de fan non officiel, sans lien avec thatgamecompany. &laquo;&nbsp;Sky: Children
+              of the Light&nbsp;&raquo; et &laquo;&nbsp;thatgamecompany&nbsp;&raquo; sont
+              cit&eacute;s pour d&eacute;signer le jeu, rien de plus. Aucun &eacute;l&eacute;ment du
+              jeu n&rsquo;est repris ici. Ceci n&rsquo;est pas un conseil juridique.
+            </p>
+          </div>
+
+          <div class="meta">
+            <p class="identity">
+              <!-- The gradient is renamed: two stars sharing an id would make
+                   this one render against the masthead's. -->
+              <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="star-foot" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7dd3fc"/>
+                    <stop offset="55%" stop-color="#38bdf8"/>
+                    <stop offset="100%" stop-color="#fb7185"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="100,10 121.2,78.8 190,100 121.2,121.2 100,190 78.8,121.2 10,100 78.8,78.8" fill="url(#star-foot)"/>
+              </svg>
+              <span>&copy; <span class="years">2026</span> NyuDev</span>
+            </p>
+
+            <nav class="links" aria-label="About this site">
+              <a href="https://github.com/NyuDev/NyuDev.github.io" target="_blank" rel="noopener noreferrer">Source code</a>
+              <a href="https://github.com/NyuDev/NyuDev.github.io/blob/main/LICENSE" target="_blank" rel="license noopener noreferrer">Licence</a>
+              <a class="contribute" href="https://github.com/NyuDev/NyuDev.github.io/issues/new" target="_blank" rel="noopener noreferrer">Suggest a change</a>
+            </nav>
+          </div>
         </div>
-
-        <p class="licence">
-          <a href="https://thatskyapp.com/">thatskyapp</a> &copy; <span class="years">2026</span> by
-          <a href="https://github.com/NyuDev">NyuDev</a> is licensed under
-          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-ND 4.0</a><img
-            src="/cc/cc.svg" alt="" width="16" height="16"><img
-            src="/cc/by.svg" alt="" width="16" height="16"><img
-            src="/cc/nc.svg" alt="" width="16" height="16"><img
-            src="/cc/nd.svg" alt="" width="16" height="16">
-        </p>
-
-        <p class="notice">
-          Unofficial fan project, unconnected to thatgamecompany. &ldquo;Sky: Children of the
-          Light&rdquo; and &ldquo;thatgamecompany&rdquo; are named to identify the game, nothing
-          more. No material from the game is reused here. None of this is legal advice.
-        </p>
-        <p class="notice" lang="fr">
-          Projet de fan non officiel, sans lien avec thatgamecompany. &laquo;&nbsp;Sky: Children of
-          the Light&nbsp;&raquo; et &laquo;&nbsp;thatgamecompany&nbsp;&raquo; sont cit&eacute;s pour
-          d&eacute;signer le jeu, rien de plus. Aucun &eacute;l&eacute;ment du jeu n&rsquo;est
-          repris ici. Ceci n&rsquo;est pas un conseil juridique.
-        </p>
       </footer>
     </main>
 
