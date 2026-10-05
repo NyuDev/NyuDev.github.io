@@ -14,7 +14,11 @@
     <meta property="og:site_name" content="thatskyapp" />
     <meta property="og:title" content="thatskyapp — unofficial Sky: Children of the Light tools" />
     <meta property="og:description" content="Free fan-made tools for Sky: Children of the Light, unconnected to thatgamecompany. Price a heart trade, see the risk, read the questions and answers." />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://thatskyapp.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="thatskyapp — unofficial tools for Sky: Children of the Light" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!--
       What this site is, said once in a form a machine can read. No rating, no
@@ -26,13 +30,21 @@
         "@context": "https://schema.org",
         "@graph": [
           {
+            "@type": "Person",
+            "@id": "https://thatskyapp.com/#creator",
+            "name": "NyuDev",
+            "url": "https://github.com/NyuDev"
+          },
+          {
             "@type": "WebSite",
             "@id": "https://thatskyapp.com/#site",
             "url": "https://thatskyapp.com/",
             "name": "thatskyapp",
             "description": "Free fan-made tools for Sky: Children of the Light, unconnected to thatgamecompany. Price a heart trade, see the risk, read the questions and answers.",
             "inLanguage": ["en", "fr"],
-            "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+            "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "creator": { "@id": "https://thatskyapp.com/#creator" },
+            "publisher": { "@id": "https://thatskyapp.com/#creator" }
           },
           {
             "@type": "WebApplication",
@@ -40,12 +52,14 @@
             "url": "https://thatskyapp.com/heart-trade-simulator/",
             "name": "Price & Risk Simulator",
             "alternateName": "Simulateur de Prix & de Risques",
-            "description": "Works out how many hearts to ask for a Sky: Children of the Light trade paid in real money, and how long it would take to pay back.",
+            "description": "Works out how many hearts to ask for a Sky: Children of the Light trade paid in real money, and how long it would realistically take to pay back.",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Any",
             "browserRequirements": "Requires JavaScript.",
             "isAccessibleForFree": true,
             "inLanguage": ["en", "fr"],
+            "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "creator": { "@id": "https://thatskyapp.com/#creator" },
             "isPartOf": { "@id": "https://thatskyapp.com/#site" }
           }
         ]
